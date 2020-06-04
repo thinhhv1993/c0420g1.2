@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class main1 {
     public static void main(String[] args) {
-        int[] array = {10,9,8,7,6,5,4,3,2,1};
+        int[] array = {10,9,8,7,6,5,4,3,2,1,0};
         Scanner arr = new Scanner(System.in);
         System.out.print("Enter numb:");
         int numb = arr.nextInt();
