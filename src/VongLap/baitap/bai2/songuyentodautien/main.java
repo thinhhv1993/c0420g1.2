@@ -19,7 +19,7 @@ public class main {
             }
             if (check == 2 ){
                 count ++ ;
-                System.out.println(N + " , ");
+                System.out.print(N + ", ");
             }
             N++;
         }
