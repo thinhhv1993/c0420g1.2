@@ -1,12 +1,10 @@
 package demo;
 
 public class Animal {
-    private void speak(){
-
-        System.out.println("Hello");
-
+    static {
+        System.out.println("Khoi static duoc trieu hoi");
+        System.exit(0);
     }
-
 }
 
 
