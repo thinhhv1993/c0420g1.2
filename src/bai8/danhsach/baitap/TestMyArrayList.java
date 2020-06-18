@@ -48,7 +48,7 @@ public class TestMyArrayList {
         studentMyArrayList.add(student3);
         studentMyArrayList.add(student4);
         studentMyArrayList.add(student5, 1);
-        System.out.println(studentMyArrayList.size());
+        System.out.println(studentMyArrayList.remove(3));
 //        for (int i = 0; i < studentMyArrayList.size(); i++ ){
 //            Student student = (Student) studentMyArrayList.elements[i];
 //            System.out.println(student.getId());
@@ -66,5 +66,6 @@ public class TestMyArrayList {
 //            System.out.print(student.getId());
 //            System.out.println(student.getName());
 //        }
+        
     }
 }

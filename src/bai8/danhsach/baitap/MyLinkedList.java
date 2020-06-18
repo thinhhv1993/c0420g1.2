@@ -2,7 +2,7 @@ package bai8.danhsach.baitap;
 
 public class MyLinkedList<E> {
 
-    private class Node {
+    public class Node{
         private Node next;
         private Object data;
 
@@ -146,6 +146,7 @@ public class MyLinkedList<E> {
                     numNodes--;
                     return true;
                 }
+                temp = temp.next;
             }
         }
         return false;
