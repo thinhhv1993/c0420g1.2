@@ -52,6 +52,9 @@ public class Product implements Comparable<Product> {
     public int compareTo(Product o) {
         return this.cost-o.cost;
     }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 6b86d13f9e839cd26daa0597a48f0053f3522904
 }

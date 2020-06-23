@@ -120,7 +120,7 @@ class BST<E extends Comparable<E>> extends AbstractTree<E> {
         return false;
     }
     public static void main(String[] args) {
-    BST<Integer> tree = new BST<>();
+        BST<Integer> tree = new BST<>();
         tree.insert(55);
         tree.insert(57);
         tree.insert(59);
