@@ -102,6 +102,7 @@ public class MyArrayList<E> {
                 elements[i] = elements[i +1];
             }
             elements[size - 1] = null;
+            size--;
             return element;
        }
     }

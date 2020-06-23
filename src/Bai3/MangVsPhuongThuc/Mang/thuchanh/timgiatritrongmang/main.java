@@ -19,7 +19,6 @@ public class main {
             }
         }
         if (!isExist)
-            System.out.println("Not found" + input_name + " in the list.");
-
+            System.out.println("Not found " + input_name + " in the list.");
     }
 }

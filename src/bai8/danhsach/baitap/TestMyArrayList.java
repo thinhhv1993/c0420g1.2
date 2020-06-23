@@ -49,12 +49,13 @@ public class TestMyArrayList {
         studentMyArrayList.add(student4);
         studentMyArrayList.add(student5, 1);
         System.out.println(studentMyArrayList.remove(3));
-//        for (int i = 0; i < studentMyArrayList.size(); i++ ){
-//            Student student = (Student) studentMyArrayList.elements[i];
-//            System.out.println(student.getId());
-//            System.out.println(student.getName());
-//        }
-//
+
+        for (int i = 0; i < studentMyArrayList.size(); i++) {
+            Student student = (Student) studentMyArrayList.elements[i];
+            System.out.print(student.getId());
+            System.out.println(student.getName());
+        }
+
 //        System.out.println(studentMyArrayList.get(5).getId());
 
 //        System.out.println(studentMyArrayList.contains(student1));
@@ -66,6 +67,6 @@ public class TestMyArrayList {
 //            System.out.print(student.getId());
 //            System.out.println(student.getName());
 //        }
-        
+
     }
 }

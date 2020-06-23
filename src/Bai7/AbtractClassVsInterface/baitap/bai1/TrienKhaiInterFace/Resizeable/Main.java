@@ -1,7 +1,5 @@
 package Bai7.AbtractClassVsInterface.baitap.bai1.TrienKhaiInterFace.Resizeable;
 
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) {
 //        Circle[] circle =new Circle[2];

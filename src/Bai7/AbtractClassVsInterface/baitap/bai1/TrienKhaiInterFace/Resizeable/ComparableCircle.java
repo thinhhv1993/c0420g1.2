@@ -1,7 +1,6 @@
 package Bai7.AbtractClassVsInterface.baitap.bai1.TrienKhaiInterFace.Resizeable;
 
-public class ComparableCircle extends Circle
-      implements Comparable<ComparableCircle> {
+public class ComparableCircle extends Circle implements Comparable<ComparableCircle> {
 
     public ComparableCircle() {
         }

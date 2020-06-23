@@ -1,7 +1,5 @@
 package Bai3.MangVsPhuongThuc.Mang.baitap.bai6.tinhtongcacsomotcotxacdinh;
 
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.Scanner;
 
 public class main {

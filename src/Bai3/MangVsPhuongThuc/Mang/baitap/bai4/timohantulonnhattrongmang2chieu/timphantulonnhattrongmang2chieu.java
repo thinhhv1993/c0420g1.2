@@ -1,7 +1,4 @@
 package Bai3.MangVsPhuongThuc.Mang.baitap.bai4.timohantulonnhattrongmang2chieu;
-
-import java.lang.reflect.Array;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class timphantulonnhattrongmang2chieu {
@@ -14,7 +11,7 @@ public class timphantulonnhattrongmang2chieu {
         double[][] array = new double[numb][numb1];
         for (int row = 0; row < array.length; row++) {
             for (int column = 0; column < array[row].length; column++) {
-                System.out.print("Nhập số phần tử của mảng thứ  :" + row + column +"của mảng array");
+                System.out.print("Nhập số phần tử của mảng thứ  :" + row +""+ column +"của mảng array");
                 array[row][column] = arr.nextInt();
             }
         }

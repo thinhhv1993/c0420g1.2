@@ -11,7 +11,7 @@ public class main {
         int[] array = new int[arraysize];
         int i = 0;
         while (i < array.length) {
-            System.out.print("Enter element " + (i + 1) + ": ");
+            System.out.print("Nhập phần tử thứ  " + (i + 1) + ": của mảng thứ nhất");
             array[i] = size.nextInt();
             i++;
         }
@@ -20,7 +20,7 @@ public class main {
         int[] array1 = new int[arraysize1];
         int j = 0;
         while (j < array1.length) {
-            System.out.print("Enter element " + (j + 1) + ": ");
+            System.out.print("Nhập phần tử thứ  " + (j + 1) + ":  của mảng thứ 2");
             array1[j] = size.nextInt();
             j++;
         }
