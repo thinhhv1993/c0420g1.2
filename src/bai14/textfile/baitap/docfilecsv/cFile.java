@@ -6,15 +6,12 @@ import java.util.Scanner;
 
 public class cFile {
     static final String PATH = "src\\bai14\\textfile\\baitap\\docfilecsv";
-    public static void creatfile(){
-    // Tạo đối tượng File trỏ tới đường dẫn
+    private static void createFile(){
+
         File dir = new File(PATH);
-        //Tạo thư mục nếu đường dẫn không tồn tại
         dir.mkdir();
-        //Tạo đối tượng File trỏ tới đường dẫn
         File file = new File(PATH,"country.csv");
         try {
-            //Tạo file
             if (file.createNewFile()){
                 System.out.println("File created..");
             }else {
@@ -25,7 +22,8 @@ public class cFile {
         }
     }
 
-    public static void writeFile(String string){
+    // viết vào file đoạn String muốn viết.
+    private static void writeFile(String string){
         FileWriter fileWriter = null;
         try {
             fileWriter = new FileWriter(PATH+"\\country.csv");
@@ -43,21 +41,18 @@ public class cFile {
         }
     }
 
-    public static void showCountry(){
-//        String csvFile = "src\\bai14\\textfile\\baitap\\docfilecsv\\country.csv";
+
+    // show ra dữ liệu quốc gia trong file csv đã được viết vào bên trên
+    private static void showCountry(){
         BufferedReader bufferedReader = null;
         String line = "";
         String cvsSplitBy = ",";
-
         try {
             bufferedReader = new BufferedReader(new FileReader(PATH+"\\country.csv"));
             while ((line = bufferedReader.readLine()) != null) {
-                // use comma as separator
                 String[] country = line.split(cvsSplitBy);
                 System.out.println("Country [code= " + country[4] + " , name=" + country[5] + "]");
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -70,8 +65,10 @@ public class cFile {
             }
         }
     }
+
     public static void main(String[] args) {
-        creatfile();
+        createFile();
+
         System.out.println("Input text");
         Scanner scanner = new Scanner(System.in);
         String str = "";
@@ -80,6 +77,7 @@ public class cFile {
             if (tempStr.isEmpty()) break;
             str += tempStr + "\n";
         }
+
         //        String string = "\"1.0.0.0\",\"1.0.0.255\",\"16777216\",\"16777471\",\"AU\",\"Australia\"\n" +
 //                "\"1.0.1.0\",\"1.0.3.255\",\"16777472\",\"16778239\",\"CN\",\"China\"\n" +
 //                "\"1.0.4.0\",\"1.0.7.255\",\"16778240\",\"16779263\",\"AU\",\"Australia\"\n" +
@@ -90,6 +88,7 @@ public class cFile {
 //                "\"1.0.128.0\",\"1.0.255.255\",\"16809984\",\"16842751\",\"TH\",\"Thailand\"";
         writeFile(str);
         showCountry();
+
         //    Liệt kê nội dung thư mục
 //        if (dir.isDirectory()){
 //            String[] dirContent = dir.list();

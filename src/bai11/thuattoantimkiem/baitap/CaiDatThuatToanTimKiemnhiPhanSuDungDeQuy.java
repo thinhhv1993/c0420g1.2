@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class CaiDatThuatToanTimKiemnhiPhanSuDungDeQuy {
 
-    public static int binarySearch(int arr[], int low, int high, int  value) {
+    private static int binarySearch(int arr[], int low, int high, int value) {
         if (high>=low) {
             int mid = low + (high - low)/2;
             if (arr[mid] == value)

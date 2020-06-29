@@ -3,7 +3,7 @@ package bai12.thuattoansapxep.thuchanh.minhoathuattoansapxepnoibot;
 import java.util.Scanner;
 
 public class BubbleSortByStep {
-    public static void bubbleSortByStep(int[] list) {
+    private static void bubbleSortByStep(int[] list) {
         boolean needNextPass = true;
         for (int k = 1; k < list.length && needNextPass; k++) {
             needNextPass = false;
@@ -42,8 +42,8 @@ public class BubbleSortByStep {
             list[i] = scanner.nextInt();
         }
         System.out.print("Your input list: ");
-        for (int i = 0; i < list.length; i++) {
-            System.out.print(list[i] + "\t");
+        for (int value : list) {
+            System.out.print(value + "\t");
         }
         System.out.println("\nBegin sort processing...");
         bubbleSortByStep(list);

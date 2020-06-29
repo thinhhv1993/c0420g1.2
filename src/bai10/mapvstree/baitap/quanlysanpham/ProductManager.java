@@ -50,7 +50,7 @@ public class ProductManager {
 
     private static void showProduct() {
         System.out.println("-----------Show Product-----------------");
-        Product obj;
+        Product obj ;
         for (Integer i : prdArray.keySet()) {
             obj = prdArray.get(i);
             System.out.println(obj.id+". Product Name:"+obj.productName+" - Cost:"+obj.cost+"USD");

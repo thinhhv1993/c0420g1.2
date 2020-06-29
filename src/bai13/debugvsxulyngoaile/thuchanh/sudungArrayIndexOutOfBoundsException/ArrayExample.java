@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class ArrayExample {
-    public Integer[] createRandom() {
+    private Integer[] createRandom() {
         Random rd = new Random();
         Integer[] arr = new Integer[100];
         System.out.println("Danh sách phần tử của mảng: " );
@@ -18,9 +18,9 @@ public class ArrayExample {
         ArrayExample arrExample = new ArrayExample();
         Integer[] arr = arrExample.createRandom();
 
-        Scanner scaner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.println("\nVui lòng nhập chỉ số của một phần tử bất kỳ: ");
-        int x = scaner.nextInt();
+        int x = scanner.nextInt();
         try {
             System.out.println("Giá trị của phần tử có chỉ số " + x + " là " + arr[x]);
         } catch (IndexOutOfBoundsException e) {

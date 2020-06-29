@@ -4,19 +4,19 @@ package bai13.debugvsxulyngoaile.baitap.sudunglopIllegalTriangleException;
 import java.util.Scanner;
 
 public class testIllegalTriangleException {
-    public static void illegalTriangleException(double a, double b, double c) {
+    private void illegalTriangleException(double a, double b, double c) {
         Scanner scanner = new Scanner(System.in);
         boolean check = false;
         while (!check) {
             try {
                 System.out.print("\ta: ");
-                a = Double.parseDouble(scanner.nextLine());
+                a = scanner.nextDouble();
 
                 System.out.print("\tb: ");
-                b = Double.parseDouble(scanner.nextLine());
+                b = scanner.nextDouble();
 
                 System.out.print("\tc: ");
-                c = Double.parseDouble(scanner.nextLine());
+                c = scanner.nextDouble();
                 if (a <= 0 || b <= 0 || c <= 0 || (a + b < c) || (a + c < b) || (b + c < a)) {
                     throw new IllegalTriangleException("tam giác sai định dạng");
                 } else {
@@ -50,7 +50,8 @@ public class testIllegalTriangleException {
         double a = 0;
         double b = 0;
         double c = 0;
-        illegalTriangleException(a, b, c);
+        testIllegalTriangleException testIllegalTriangleException = new testIllegalTriangleException();
+       testIllegalTriangleException.illegalTriangleException(a, b, c);
     }
 }
 

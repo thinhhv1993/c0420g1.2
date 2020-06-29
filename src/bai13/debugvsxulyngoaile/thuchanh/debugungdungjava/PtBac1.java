@@ -4,11 +4,7 @@ import java.util.Scanner;
 
 public class PtBac1 {
 
-    public static void tinhNghiem(double a, double b, double c){
-        if (a != 0) {
-            double answer = (c - b) / a;
-            System.out.printf("Equation pass with x = %f!\n", answer);
-        }
+    private static void tinhNghiem(double a, double b, double c){
         if (a != 0) {
             double answer = (c - b) / a;
             System.out.printf("Equation pass with x = %f!\n", answer);

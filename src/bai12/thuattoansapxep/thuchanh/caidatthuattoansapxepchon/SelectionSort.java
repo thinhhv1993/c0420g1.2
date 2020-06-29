@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class SelectionSort {
     static double[] list = {1, 9, 4.5, 6.6, 5.7, -4.5};
-    public static void selectionSort(double[] list) {
+    private static void selectionSort(double[] list) {
         for (int i = 0; i < list.length - 1; i++) {
             /* Find the minimum in the list[i..list.length-1] */
             double currentMin = list[i];
