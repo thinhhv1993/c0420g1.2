@@ -3,26 +3,17 @@ package demo;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class Write_Content_File {
-    static final String PATH = "src/content/test.txt";
-
     public static void main(String[] args) {
-        FileWriter fileWriter = null;
-        try {
-            fileWriter = new FileWriter(PATH);
-            fileWriter.write("CodeGymDaNang");
-            fileWriter.write(" Lop c0520G1");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }finally {
-            if (fileWriter != null){
-                try {
-                    fileWriter.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
+        String string = "aBcd";
+        String temp[] = string.split("");
+        String str ="";
+        str += String.valueOf(temp[0].charAt(0)).toUpperCase();
+        for (int i = 1; i < temp.length; i++) {
+            str += String.valueOf(temp[i].charAt(0)).toLowerCase();
         }
+        System.out.println(str);
     }
 }

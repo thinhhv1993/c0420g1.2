@@ -9,7 +9,7 @@ public class StudentManager {
     final String PATH = "src/content/StudentData.cvs";
     List<Student> studentsData = new ArrayList<>();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
         StudentManager studentManager = new StudentManager();
         int choose = 0;
@@ -24,9 +24,12 @@ public class StudentManager {
                 try {
                     studentManager.createFileData();
                     studentManager.convertData();
-                    if (studentManager.showMenu() == 5) break;
-                } catch (Exception e) {
-                    e.printStackTrace();
+                    if (studentManager.showMenu() == 6) break;
+                } catch (IOException | ClassNotFoundException e) {
+                    studentManager.studentsData.clear();
+                    studentManager.convertFile();
+                    System.out.println("IOException | ClassNotFoundException");
+                    break;
                 }
             }
         }
@@ -49,8 +52,8 @@ public class StudentManager {
         FileInputStream fileInputStream = new FileInputStream(PATH);
         ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
         studentsData = (List<Student>) objectInputStream.readObject();
-        fileInputStream.close();
         objectInputStream.close();
+        fileInputStream.close();
     }
 
     private void convertFile() throws IOException {
@@ -78,12 +81,14 @@ public class StudentManager {
                 } break;
             case 3 : findStudent();showMenu();break;
             case 4 : removeStudent(); showMenu();break;
-            case 5 : showStudentData(); updateStudent(); break;
+            case 5 : showStudentData(); updateStudent(); showMenu(); break;
             default: break;
         }
         return choose;
     }
-    private void updateStudent(){
+    private void updateStudent() throws IOException {
+        FileOutputStream file = new FileOutputStream(PATH);
+        ObjectOutputStream osi = new ObjectOutputStream(file);
         Scanner scanner = new Scanner(System.in);
         System.out.println("Input your ID :");
         int id = scanner.nextInt();
