@@ -1,6 +1,8 @@
 package casestudy.furamaresot.models;
 
-public class Customer {
+import java.io.Serializable;
+
+public class Customer implements Serializable {
     private String id;
     private String nameCustomer ;
     private String birCustomer ;
@@ -30,7 +32,16 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(String id, String name, String birth, String sex, String idcard, int phone, String email, String type, String add) {
+    public Customer(String id, String nameCustomer, String birCustomer, String sexCustomer, String idCustomer, int phoneCustomer, String emailCustomer, String typeCustomer, String addressCustomer) {
+        this.id = id;
+        this.nameCustomer = nameCustomer;
+        this.birCustomer = birCustomer;
+        this.sexCustomer = sexCustomer;
+        this.idCustomer = idCustomer;
+        this.phoneCustomer = phoneCustomer;
+        this.emailCustomer = emailCustomer;
+        this.typeCustomer = typeCustomer;
+        this.addressCustomer = addressCustomer;
     }
 
     public String getId() {
@@ -114,18 +125,22 @@ public class Customer {
     }
 
     public void showInfor(){
-        System.out.println("Customer{" +
-                "id = " + id + '\'' +
-                ", name='" + nameCustomer + '\'' +
-                ", birthday ='" + birCustomer + '\'' +
-                ", sex ='" + sexCustomer + '\'' +
-                ", id card ='" + idCustomer + '\'' +
-                ", phone ='" + phoneCustomer + '\'' +
-                ", email ='" + emailCustomer + '\'' +
-                ", type ='" + typeCustomer + '\'' +
-                ", address ='" + addressCustomer + '\'' +
-                ", service ='" + servicesCustomer + '\''+'}');
+        System.out.println(toString());
     }
 
-
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id='" + id + '\'' +
+                ", nameCustomer='" + nameCustomer + '\'' +
+                ", birCustomer='" + birCustomer + '\'' +
+                ", sexCustomer='" + sexCustomer + '\'' +
+                ", idCustomer='" + idCustomer + '\'' +
+                ", phoneCustomer=" + phoneCustomer +
+                ", emailCustomer='" + emailCustomer + '\'' +
+                ", typeCustomer='" + typeCustomer + '\'' +
+                ", addressCustomer='" + addressCustomer + '\'' +
+                ", servicesCustomer=" +""
+                ;
+    }
 }

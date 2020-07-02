@@ -7,17 +7,27 @@ public abstract class Services {
     private int price;
     private int numbPeople;
     private int numbDay;
+    private String aService;
+
+    public String getaService() {
+        return aService;
+    }
+
+    public void setaService(String aService) {
+        this.aService = aService;
+    }
 
     public Services() {
     }
 
-    public Services(String id, String name, double acreage, int price, int numbPeople, int numbDay) {
+    public Services(String id, String name, double acreage, int price, int numbPeople, int numbDay,String aService ) {
         this.id = id;
         this.name = name;
         this.acreage = acreage;
         this.price = price;
         this.numbPeople = numbPeople;
         this.numbDay = numbDay;
+        this.aService = aService;
     }
 
     public String getId() {
@@ -79,6 +89,7 @@ public abstract class Services {
                 ", price=" + price +
                 ", numbPeople=" + numbPeople +
                 ", numbDay=" + numbDay +
+                ", aService=" + aService +
                 '}';
     }
 }

@@ -1,6 +1,8 @@
 package casestudy.furamaresot.models;
 
-public class House extends Services {
+import java.io.Serializable;
+
+public class House extends Services implements Comparable<House>, Serializable {
     private String standardRoom;
     private String convenient;
     private int numbFloor;
@@ -11,12 +13,16 @@ public class House extends Services {
         this.numbFloor = numbFloor;
     }
 
-    public House(String id, String name, double acreage, int price, int numbPeople, int numbDay, String standardRoom, String convenient, int numbFloor) {
-        super(id, name, acreage, price, numbPeople, numbDay);
+    public House(String id, String name, double acreage, int price, int numbPeople, int numbDay, String aService, String standardRoom, String convenient, int numbFloor) {
+        super(id, name, acreage, price, numbPeople, numbDay, aService);
         this.standardRoom = standardRoom;
         this.convenient = convenient;
         this.numbFloor = numbFloor;
     }
+
+    public House() {
+    }
+
 
     public String getStandardRoom() {
         return standardRoom;
@@ -44,17 +50,7 @@ public class House extends Services {
 
     @Override
     public void showInfor() {
-        System.out.println("House{" +
-                "id='" + this.getId() + '\'' +
-                ", name='" + this.getName() + '\'' +
-                ", acreage=" + this.getAcreage() +
-                ", price=" + this.getPrice() +
-                ", numbPeople=" + this.getNumbPeople() +
-                ", numbDay=" + this.getNumbDay() +
-                "standardRoom='" + standardRoom + '\'' +
-                ", convenient='" + convenient + '\'' +
-                ", numbFloor=" + numbFloor +
-                '}');
+        System.out.println(toString());
     }
 
     @Override
@@ -68,4 +64,24 @@ public class House extends Services {
         return false;
     }
 
+    @Override
+    public String toString() {
+        return "House{" +
+                "id='" + this.getId() + '\'' +
+                ", name='" + this.getName() + '\'' +
+                ", acreage=" + this.getAcreage() +
+                ", price=" + this.getPrice() +
+                ", numbPeople=" + this.getNumbPeople() +
+                ", numbDay=" + this.getNumbDay() +
+                ", AccompaniedService=" + this.getaService() +
+                "standardRoom='" + standardRoom + '\'' +
+                ", convenient='" + convenient + '\'' +
+                ", numbFloor=" + numbFloor +
+                '}';
+    }
+
+    @Override
+    public int compareTo(House o) {
+        return o.getName().compareTo(this.getName());
+    }
 }

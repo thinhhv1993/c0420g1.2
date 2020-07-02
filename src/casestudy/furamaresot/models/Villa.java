@@ -3,7 +3,7 @@ package casestudy.furamaresot.models;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Villa extends Services implements Serializable {
+public class Villa extends Services implements Serializable, Comparable<Villa> {
     private String standardRoom;
     private String convenient;
     private String acreagePool;
@@ -16,16 +16,17 @@ public class Villa extends Services implements Serializable {
         this.numbFloor = numbFloor;
     }
 
-    public Villa(String id, String name, double acreage, int price, int numbPeople, int numbDay, String standardRoom, String convenient, String acreagePool, int numbFloor) {
-        super(id, name, acreage, price, numbPeople, numbDay);
+    public Villa(String id, String name, double acreage, int price, int numbPeople, int numbDay, String aService, String standardRoom, String convenient, String acreagePool, int numbFloor) {
+        super(id, name, acreage, price, numbPeople, numbDay, aService);
         this.standardRoom = standardRoom;
         this.convenient = convenient;
         this.acreagePool = acreagePool;
         this.numbFloor = numbFloor;
     }
 
-    public Villa(String id, String name, double acreage, int price, int people, String standardRoom, String convenient, String acreagePool, int numbfloor) {
+    public Villa() {
     }
+
 
     public String getStandardRoom() {
         return standardRoom;
@@ -61,18 +62,7 @@ public class Villa extends Services implements Serializable {
 
     @Override
     public void showInfor() {
-        System.out.println("Villa{" +
-                "id='" + this.getId() + '\'' +
-                ", name='" + this.getName() + '\'' +
-                ", acreage=" + this.getAcreage() +
-                ", price=" + this.getPrice() +
-                ", numbPeople=" + this.getNumbPeople() +
-                ", numbDay=" + this.getNumbDay() +
-                ",standardRoom='" + standardRoom + '\'' +
-                ", convenient='" + convenient + '\'' +
-                ", acreagePool='" + acreagePool + '\'' +
-                ", numbFloor=" + numbFloor +
-                '}');
+        System.out.println(toString());
     }
 
     @Override
@@ -85,5 +75,28 @@ public class Villa extends Services implements Serializable {
         }
         return false;
     }
+
+    @Override
+    public String toString() {
+        return "Villa{" +
+                "id='" + this.getId() + '\'' +
+                ", name='" + this.getName() + '\'' +
+                ", acreage=" + this.getAcreage() +
+                ", price=" + this.getPrice() +
+                ", numbPeople=" + this.getNumbPeople() +
+                ", numbDay=" + this.getNumbDay() +
+                ", AccompaniedService=" + this.getaService() +
+                ",standardRoom='" + standardRoom + '\'' +
+                ", convenient='" + convenient + '\'' +
+                ", acreagePool='" + acreagePool + '\'' +
+                ", numbFloor=" + numbFloor +
+                '}';
+    }
+
+    @Override
+    public int compareTo(Villa o) {
+        return this.getName().compareTo(o.getName());
+    }
+
 
 }

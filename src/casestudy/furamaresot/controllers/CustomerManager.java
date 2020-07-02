@@ -3,9 +3,7 @@ package casestudy.furamaresot.controllers;
 import casestudy.furamaresot.models.Customer;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class CustomerManager {
     public static final String PATH = "src\\casestudy\\furamaresot\\data";
@@ -44,54 +42,53 @@ public class CustomerManager {
                 System.out.println("Input your name : ");
                 name = scanner.nextLine();
                 if (regex.regexName(name)) {
-                    check = true;
                     break;
                 } else {
                     System.out.println("name error");
                     check = false;
                 }
             }
+            check = false;
             while (!check){
                 System.out.println("Input your birthday : ");
                  birth = scanner.nextLine();
                  if(regex.regexBIRTH(birth)){
-                     check = true;
                      break;
                  }else {
                      System.out.println("birthday error");
                      check = false;
                  }
             }
+            check = false;
             while (!check) {
                 System.out.println("Input your sex : ");
                 sex = scanner.nextLine();
                 if (regex.regexMale(sex)) {
                     sex = regex.male(sex);
-                    check = true;
                     break;
                 } else {
                     System.out.println(" sex error ");
                     check = false;
                 }
             }
+            check = false;
             while(!check) {
                 System.out.println("Input your Id card : ");
                  idcard = scanner.nextLine();
                 if(regex.regexCMND(idcard)){
-                    check = true;
                     break;
                 }else {
                     System.out.println(" Id Card phải có 9 chữ số và theo định dạng XXX XXX XXX ");
                     check = false;
                 }
             }
+            check = false;
             System.out.println("Input your phone : ");
             int phone = Integer.parseInt(scanner.nextLine());
             System.out.println("Input your email : ");
             while (!check) {
                 email = scanner.nextLine();
                 if (regex.regexEmail(email)) {
-                    check = true;
                     break;
                 } else {
                     System.out.println("email error ");
@@ -104,7 +101,6 @@ public class CustomerManager {
             String add = scanner.nextLine();
 
             Customer customer = new Customer(id, name, birth, sex, idcard, phone, email, type, add);
-            customerList.add(customer);
             writeFile(customer, true);
         } catch (Exception e) {
             e.printStackTrace();
@@ -125,7 +121,7 @@ public class CustomerManager {
         }
 
         BufferedReader bufferedReader = null;
-        List<Customer> villaList = new ArrayList<>();
+        List<Customer> customerList = new ArrayList<>();
         try {
             FileReader fileReader = new FileReader(PATH + "\\Customer.csv");
             bufferedReader = new BufferedReader(fileReader);
@@ -185,6 +181,16 @@ public class CustomerManager {
             bufferedWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+    //----------------------------------------------------------------
+    public void showInformationCustomer(){
+        CustomerComparator customerComparator = new CustomerComparator();
+        customerList = readCSVFile();
+        Collections.sort(customerList, customerComparator);
+
+        for(Customer customer: customerList){
+            customer.showInfor();
         }
     }
 }

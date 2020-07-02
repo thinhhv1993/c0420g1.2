@@ -9,22 +9,26 @@ public class Regex {
     private static final String MALE_REGEX =  "Nam|Nu|Khong";
     private static final String CMND_REGEX = "[\\d]{3,}\\s[\\d]{3,}\\s[\\d]{3,}";
     private static final String BIRTH_REGEX = "^(0[1-9]|1[012])[-/.](0[1-9]|[12][0-9]|3[01])[-/.](19|20)\\d\\d$";
+    private static final String SERVICE_REGEX = "massage|karaoke|food|drink|car";
+    private static final String VILLA_REGEX  = "(SVVL)[\\d]{4,}";
+    private static final String HOUSE_REGEX  = "(HOVL)[\\d]{4,}";
+    private static final String ROOM_REGEX  = "(ROVL)[\\d]{4,}";
     private static Pattern pattern;
     private Matcher matcher;
 
-    public boolean regexEmail(String string){
+    boolean regexEmail(String string){
         pattern = Pattern.compile(EMAIL_REGEX);
         matcher = pattern.matcher(string);
         return matcher.matches();
     }
 
-    public boolean regexName(String string){
+     boolean regexName(String string){
         pattern = Pattern.compile(NAME_REGEX);
         matcher = pattern.matcher(string);
         return matcher.matches();
     }
 
-    public boolean regexMale(String string){
+     boolean regexMale(String string){
         String temp[] = string.split("");
         String str ="";
         str += String.valueOf(temp[0].charAt(0)).toUpperCase();
@@ -36,7 +40,7 @@ public class Regex {
         return matcher.matches();
     }
 
-    public String male(String string){
+     String male(String string){
         String temp[] = string.split("");
         String str ="";
         str += String.valueOf(temp[0].charAt(0)).toUpperCase();
@@ -46,14 +50,36 @@ public class Regex {
         return str;
     }
 
-    public boolean regexCMND(String string){
+     boolean regexCMND(String string){
         pattern = Pattern.compile(CMND_REGEX);
         matcher = pattern.matcher(string);
         return matcher.matches();
     }
 
-    public boolean regexBIRTH(String string){
+     boolean regexBIRTH(String string){
         pattern = Pattern.compile(BIRTH_REGEX);
+        matcher = pattern.matcher(string);
+        return matcher.matches();
+    }
+
+     boolean regexService(String string){
+        pattern = Pattern.compile(SERVICE_REGEX);
+        matcher = pattern.matcher(string);
+        return matcher.matches();
+    }
+
+     boolean regexIdvila(String string){
+        pattern = Pattern.compile(VILLA_REGEX);
+        matcher = pattern.matcher(string);
+        return matcher.matches();
+    }
+     boolean regexIdRoom(String string){
+        pattern = Pattern.compile(ROOM_REGEX);
+        matcher = pattern.matcher(string);
+        return matcher.matches();
+    }
+     boolean regexIdHouse(String string){
+        pattern = Pattern.compile(HOUSE_REGEX);
         matcher = pattern.matcher(string);
         return matcher.matches();
     }
