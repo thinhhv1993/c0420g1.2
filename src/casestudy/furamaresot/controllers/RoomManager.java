@@ -31,7 +31,7 @@ public class RoomManager {
     }
 
     public void addNewRoom() {
-        MainController mainController = new MainController();
+        ServiceManager serviceManager = new ServiceManager();
         Scanner scanner = new Scanner(System.in);
         Regex regex = new Regex();
         AccompaniedService accompaniedService ;
@@ -118,7 +118,7 @@ public class RoomManager {
 
             Room room = new Room(id, name, acreage, price, people, day,aservice, saleService);
             writeCSVFileRoom(room, true);
-            mainController.addNewServices();
+            serviceManager.addNewServices();
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }

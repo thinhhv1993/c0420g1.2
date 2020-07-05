@@ -28,7 +28,7 @@ public class HouseManager {
     }
 
     public void addNewHouse() {
-        MainController mainController = new MainController();
+        ServiceManager serviceManager = new ServiceManager();
         Scanner scanner = new Scanner(System.in);
         Regex regex = new Regex();
         AccompaniedService accompaniedService ;
@@ -119,7 +119,7 @@ public class HouseManager {
 
             House house = new House(id, name, acreage, price, people, day, aservice, standardRoom, convenient, numbfloor);
             writeCSVFileHouse(house, true);
-            mainController.addNewServices();
+            serviceManager.addNewServices();
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }

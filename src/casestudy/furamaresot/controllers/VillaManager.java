@@ -31,7 +31,7 @@ public class VillaManager {
     }
 
     public void addNewVilla(){
-        MainController mainController = new MainController();
+        ServiceManager serviceManager = new ServiceManager();
         Scanner scanner = new Scanner(System.in);
         Regex regex = new Regex();
         AccompaniedService accompaniedService = null;
@@ -43,20 +43,15 @@ public class VillaManager {
         String aservice = "";
         String name ="";
         try {
-            while (true) {
+            do {
                 System.out.println("Input id villa :");
                 System.out.println("Villa Format SVVL-YYYY vs Y in number  ");
                 id = scanner.nextLine();
-                if(regex.regexIdvila(id))
-                break;
-            }
-            while (true) {
+            } while (!regex.regexIdvila(id));
+            do {
                 System.out.println("Input name villa :");
-                 name = scanner.nextLine();
-                if(regex.regexName(name)){
-                    break;
-                }
-            }
+                name = scanner.nextLine();
+            } while (!regex.regexName(name));
             while (true) {
                 System.out.println("Input acreage villa :");
                  acreage = Double.parseDouble(scanner.nextLine());
@@ -103,26 +98,28 @@ public class VillaManager {
             System.out.println("Do your wan book Accompanied Service : (yes/no)");
             String service = scanner.nextLine();
             if (service.equals("yes")) {
+                label:
                 while (true) {
                     System.out.println("Input your massage | karaoke | food | drink | car.");
                     System.out.println("Inpt your Accompanied service : ");
                      aservice = scanner.nextLine();
                     if (regex.regexService(aservice)) {
-                        if (aservice.equals("massage")) {
-                            accompaniedService = AccompaniedService.massage;
-                            break;
-                        } else if (aservice.equals("karaoke")) {
-                            accompaniedService = AccompaniedService.karaoke;
-                            break;
-                        } else if (aservice.equals("food")) {
-                            accompaniedService = AccompaniedService.food;
-                            break;
-                        } else if (aservice.equals("drink")) {
-                            accompaniedService = AccompaniedService.drink;
-                            break;
-                        } else if (aservice.equals("car")) {
-                            accompaniedService = AccompaniedService.car;
-                            break;
+                        switch (aservice) {
+                            case "massage":
+                                accompaniedService = AccompaniedService.massage;
+                                break label;
+                            case "karaoke":
+                                accompaniedService = AccompaniedService.karaoke;
+                                break label;
+                            case "food":
+                                accompaniedService = AccompaniedService.food;
+                                break label;
+                            case "drink":
+                                accompaniedService = AccompaniedService.drink;
+                                break label;
+                            case "car":
+                                accompaniedService = AccompaniedService.car;
+                                break label;
                         }
                     }
                 }
@@ -132,7 +129,7 @@ public class VillaManager {
 
             Villa villa = new Villa(id,name,acreage,price,people,day,aservice,standardRoom,convenient,acreagePool,numbfloor);
             writeCSVFileVilla(villa,true);
-            mainController.addNewServices();
+            serviceManager.addNewServices();
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
