@@ -7,13 +7,14 @@ import java.util.Arrays;
 
 public class Write_Content_File {
     public static void main(String[] args) {
-        String string = "aBcd";
-        String temp[] = string.split("");
-        String str ="";
-        str += String.valueOf(temp[0].charAt(0)).toUpperCase();
-        for (int i = 1; i < temp.length; i++) {
-            str += String.valueOf(temp[i].charAt(0)).toLowerCase();
-        }
-        System.out.println(str);
+        Write_Content_File write_content_file = new Write_Content_File();
+        int[] x = {1, 1};
+        write_content_file.method(x);
+        System.out.printf("x=%d, y=%d", x[0], x[1]);
     }
+    void method(int[] x) {
+        x[0] = 5;
+        x[1] = 5;
+    }
+
 }
