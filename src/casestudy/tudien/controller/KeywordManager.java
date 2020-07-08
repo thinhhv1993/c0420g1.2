@@ -4,33 +4,18 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class KeywordManager {
-    Main main = new Main();
-    List<KeyWord> keyWordList = main.keyWordLinkedList ;
     public static final String PATH = "src\\casestudy\\tudien\\data\\keyword.txt";
 
     public KeywordManager() {
     }
 
-    public KeywordManager(List<KeyWord> keyWordList) {
-        this.keyWordList = keyWordList;
-    }
-
-    public List<KeyWord> getKeyWordList() {
-        return keyWordList;
-    }
-
-    public void setKeyWordList(List<KeyWord> keyWordList) {
-        this.keyWordList = keyWordList;
-    }
 
     @Override
     public String toString() {
         return "KeywordManager{" +
-                "keyWordList=" + keyWordList +
                 '}';
     }
 
@@ -53,21 +38,19 @@ public class KeywordManager {
             choose = scanner.nextLine();
             if(choose.equals("no")) break;
             System.out.println("Input your define ");
-            stringBuilder.append(scanner.nextLine());
+            stringBuilder.append(scanner.nextLine()).append("\n");
             keyWord.setDefine(stringBuilder);
         }while (true);
-        keyWordList.add(keyWord);
-        objectOutputStream.writeObject(keyWordList);
+        Main.keyWordLinkedList.add(keyWord);
+        objectOutputStream.writeObject(Main.keyWordLinkedList);
         objectOutputStream.close();
         fileOutputStream.close();
     }
 
-    public void lookup(String string) throws IOException, ClassNotFoundException {
+    public void lookup(String string) {
         boolean check = false;
         int index = 0;
-        Main main = new Main();
-        main.convertData();
-        for (KeyWord keyWord : main.keyWordLinkedList) {
+        for (KeyWord keyWord : Main.keyWordLinkedList) {
             if (string.equals(keyWord.getNameKey())) {
                 check = true;
                 break;
@@ -75,18 +58,16 @@ public class KeywordManager {
             index++;
         }
         if (check) {
-            System.out.println(main.keyWordLinkedList.get(index).toString());
+            System.out.println(Main.keyWordLinkedList.get(index).toString());
         } else {
             System.out.println("Keyword not in list");
         }
     }
 
-    public boolean drop(String string) throws IOException, ClassNotFoundException {
-        Main main = new Main();
-        main.convertData();
-        for (KeyWord keyWord : main.keyWordLinkedList) {
+    public boolean drop(String string) {
+        for (KeyWord keyWord : Main.keyWordLinkedList) {
             if (string.equals(keyWord.getNameKey())) {
-               main.keyWordLinkedList.remove(keyWord);
+               Main.keyWordLinkedList.remove(keyWord);
                 return true;
             }
         }

@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileReader;
 
 public class checked_exception {
+
     public static void main(String[] args) {
         //Tạo 1 file trong ổ E
         File file = new File("E://file.txt");
@@ -14,5 +15,7 @@ public class checked_exception {
         ta phải xử lý nên đây là exception loại checked
          */
 //        FileReader fileReader = new FileReader(file);
+
     }
+
 }

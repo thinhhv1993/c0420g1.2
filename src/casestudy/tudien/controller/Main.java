@@ -7,9 +7,9 @@ import java.util.Scanner;
 
 public class Main {
     public static final String PATH = "src\\casestudy\\tudien\\data";
-    List<KeyWord> keyWordLinkedList = new LinkedList<>();
+    static List<KeyWord> keyWordLinkedList = new LinkedList<>();
 
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
+    public static void main(String[] args) throws IOException {
         Main main = new Main();
         try {
             main.createFileData();
@@ -19,18 +19,17 @@ public class Main {
             main.convertFile();
             System.out.println("IOException | ClassNotFoundException");
         }
-        KeywordManager keywordManager = new KeywordManager();
-        keywordManager.keyWordList = main.keyWordLinkedList;
         main.showMenu();
     }
 
-    public void showMenu() throws IOException, ClassNotFoundException {
+    public void showMenu(){
         System.out.println();
         System.out.println("Action : lookup/define/drop/exportFile");
         System.out.print("Action : ");
         Scanner scanner = new Scanner(System.in);
         String action = scanner.nextLine();
         String[] action1 = action.split(" ");
+        try {
         switch (action1[0]) {
             case "lookup":
                 KeywordManager keywordManager = new KeywordManager();
@@ -38,10 +37,12 @@ public class Main {
                 showMenu();
                 break;
             case "define":
-                KeywordManager keywordManager1 = new KeywordManager();
-                keywordManager1.addKeyword(action1[1]);
-                showMenu();
-                break;
+
+                    KeywordManager keywordManager1 = new KeywordManager();
+                    keywordManager1.addKeyword(action1[1]);
+                    showMenu();
+                    break;
+
             case "drop":
                 KeywordManager keywordManager2 = new KeywordManager();
                 keywordManager2.drop(action1[1]);
@@ -54,6 +55,9 @@ public class Main {
             default:
                 System.out.println("please input it's correct format");
                 showMenu();
+        }
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 
@@ -90,11 +94,6 @@ public class Main {
         File dir = new File("C:\\Users\\Admin\\Desktop");
         dir.mkdir();
         FileWriter fileWriter = new FileWriter("C:\\Users\\Admin\\Desktop"+"\\keyword.txt");
-        FileInputStream fileInputStream = new FileInputStream(PATH + "\\keyword.txt");
-        ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-        keyWordLinkedList = (List<KeyWord>) objectInputStream.readObject();
-        objectInputStream.close();
-        fileInputStream.close();
 
         for (KeyWord keyWord : keyWordLinkedList){
             fileWriter.write(keyWord.toString());
